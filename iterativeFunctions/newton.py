@@ -9,8 +9,6 @@ def newton(e,x0,f):
     prevX=x0
     x=x0
 
-    df=derv(symbolicF[f.__name__])
-
     results={
         "name":"Newton",
         "x0": x0,
@@ -19,6 +17,8 @@ def newton(e,x0,f):
         "n": 0,
         "time": 0}
     start= time.perf_counter()
+
+    df=derv(symbolicF[f.__name__])
     maxN=1000
     for i in range(maxN):
         prevX=x

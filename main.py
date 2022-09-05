@@ -17,7 +17,7 @@ os.system('cls')
 #plotFunction(f_b,[1,4],100,"Funcion b")
 #plotFunction(f_c,[1,4],100,"Funcion c")
 
-nameF=f_a
+nameF=f_c
 interval=[1,4]
 
 #latex table
