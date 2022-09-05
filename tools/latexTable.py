@@ -18,7 +18,6 @@ def showLatexTable(titles,data,precision,dtype=[]):
     if(dtype!=[]): 
         table.set_cols_dtype(dtype) # automatic
     table.add_rows(rows)
-    print(data)
 
     print('\nTexttable Table:')
     print(table.draw())

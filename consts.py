@@ -2,7 +2,10 @@ from pyclbr import Function
 import numpy as np
 import sympy as sp
 
-#scipy format
+#error
+e=10e-6
+
+#sympy  format
 symbolicF={
     "f_a": lambda x: (np.e)**(-x*x)+sp.sin(x),
     "f_b": lambda x: sp.sin(x*x+x-1),

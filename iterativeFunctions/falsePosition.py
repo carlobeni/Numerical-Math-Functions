@@ -1,6 +1,8 @@
 import time
 import numpy as np
 
+from tools.isReady import isReady
+
 def falsePosition(e,range_value,f):
     [li,ls]=range_value
     prevX=0
@@ -22,14 +24,7 @@ def falsePosition(e,range_value,f):
         if(f(c)*f(li)<0): ls=c
         else: li=c
         
-        if np.abs(f(c))<e:
-            results["condition"]="$|f(x_k)| < 10^{-6}$"
-            results["root"]=c
-            break
-        if np.abs(prevX-c)<e:
-            results["condition"]="$|x_k-x_{k-1}| < 10^{-6}$"
-            results["root"]=c
-            break
+        if(isReady(f(c),c,prevX,results,e)): break
         results["n"]+=1
 
     end=time.perf_counter()

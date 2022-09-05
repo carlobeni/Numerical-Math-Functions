@@ -13,30 +13,29 @@ import os
 os.system('cls')
 
 #Save Plots
-plotFunction(f_a,[1,4],100,"Funcion a")
-plotFunction(f_b,[1,4],100,"Funcion b")
-plotFunction(f_c,[1,4],100,"Funcion c")
+#plotFunction(f_a,[1,4],100,"Funcion a")
+#plotFunction(f_b,[1,4],100,"Funcion b")
+#plotFunction(f_c,[1,4],100,"Funcion c")
+
+nameF=f_a
+interval=[1,4]
 
 #latex table
-resBis=list(bisection(0.000001,[1,4],f_c).values())
-resFalseP=list(falsePosition(0.000001,[1,4],f_c).values())
+resBis=list(bisection(e,interval,nameF).values())
+resFalseP=list(falsePosition(e,interval,nameF).values())
 listTable=[resBis,resFalseP]
 dtype=["a" for i in range(len(resBis)-1)]
 dtype.append("e")
 titles=['$Method$','$Range$','$x$','$SC$', '$n$','$Time(s)$']
 showLatexTable(titles,listTable,7,dtype)
 
-print("------------------------------------------------")
-
-resNewton=[list(newton(0.000001,2,f_c).values())]
+resNewton=[list(newton(e,2,nameF).values())]
 titles=['$Method$','$x_0$','$x$','$SC$', '$n$','$Time(s)$']
 dtype=["a" for i in range(len(resNewton[0])-1)]
 dtype.append("e")
 showLatexTable(titles,resNewton,7,dtype)
 
-print("------------------------------------------------")
-
-resSec=[list(secant(0.000001,2,2.1,f_c).values())]
+resSec=[list(secant(e,2,2.1,nameF).values())]
 titles=['$Method$','$x_0$','$x_1$','$x$','$SC$', '$n$','$Time(s)$']
 dtype=["a" for i in range(len(resSec[0])-1)]
 dtype.append("e")

@@ -1,6 +1,8 @@
 import time
 import numpy as np
 
+from tools.isReady import isReady
+
 def secant(e,x0,xp0,f):
     prevAX=xp0
     prevX=xp0
@@ -21,14 +23,7 @@ def secant(e,x0,xp0,f):
         prevX=x
         x=prevX-f(prevX)/df(prevX,prevAX)
 
-        if np.abs(f(x))<e:
-            results["condition"]="$|f(x_k)| < 10^{-6}$"
-            results["root"]=x
-            break
-        if np.abs(prevX-x)<e:
-            results["condition"]="$|x_k-x_{k-1}| < 10^{-6}$"
-            results["root"]=x
-            break
+        if(isReady(f(x),x,prevX,results,e)): break
         results["n"]+=1
         
     end=time.perf_counter()
